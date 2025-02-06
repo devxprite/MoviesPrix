@@ -1,5 +1,5 @@
 import tmdbClient from '@/lib/tmdb';
-import { IApiResponse, IMovie } from '@/types/api-response';
+import { IApiResponse, IMovie, IMovieInfo } from '@/types/api-response';
 
 interface DiscoverMoviesProps {
     page?: number;
@@ -15,7 +15,6 @@ export const discoverMovies = async (props: DiscoverMoviesProps) => {
     try {
         const response = await tmdbClient.get<IApiResponse<IMovie[]>>('/discover/movie', {
             params: {
-                // language: 'en-US',
                 page: props.page || 1,
                 include_adult: false,
                 include_video: false,
@@ -43,5 +42,45 @@ export const getTrendingMovies = async () => {
     } catch (error) {
         console.log('Error while fetching movies inside Trending Movies:', error);
         return [];
+    }
+};
+
+// enum MovieType {
+//     TV = 'tv',
+//     MOVIE = 'movie',
+// }
+
+interface SearchMoviesProps {
+    query: string;
+    page?: number;
+    type?: string;
+}
+
+export const searchMovies = async ({ query, type = 'movie', page = 1 }: SearchMoviesProps) => {
+    try {
+        const response = await tmdbClient.get<IApiResponse<IMovie[]>>(`/search/${type}`, {
+            params: {
+                query,
+                include_adult: false,
+                include_video: false,
+                page: 1,
+            },
+        });
+        return response.data.results;
+    } catch (error) {
+        console.log('Error while fetching movies inside Search Movies:', error);
+        return [];
+    }
+};
+
+export const getMovieInfo = async (id: string) => {
+    try {
+        const response = await tmdbClient.get<IMovieInfo>(`/movie/${id}`, {
+            params: { language: 'en-US' },
+        });
+        return response.data;
+    } catch (error) {
+        console.log('Error while fetching movie info:', error);
+        return null;
     }
 };

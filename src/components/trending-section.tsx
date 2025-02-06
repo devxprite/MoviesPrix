@@ -6,50 +6,37 @@ import { getTrendingMovies } from '@/utils/movies';
 import CarouselComponent from './client/carousel';
 import { ScrollArea, ScrollBar } from './ui/scroll-area';
 import MovieCard from './movie-card';
+import { Button } from './ui/button';
 
 const TrendingSection = async () => {
     const movies = await getTrendingMovies();
+    const movie = movies[10];
+
+    console.log(movie);
 
     return (
-        <Card className="w-full overflow-hidden">
-            <CardHeader>
-                <CardTitle>Trending Movies</CardTitle>
-                <CardDescription>Discover the latest and most popular movies</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <ScrollArea className="w-full whitespace-nowrap">
-                    <div className="flex w-max space-x-4 pb-2">
-                        {movies.map((movie, index) => (
-                            <div
-                                key={movie.id}
-                                className="rounded-lg text-left relative border overflow-hidden bg-red-500 shadow-md aspect-video w-[calc(100vw-4.75rem)] md:w-[32rem] "
-                            >
-                                <img
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                    src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
-                                />
+        <div className="w-full border relative bg-card overflow-hidden h-[26rem] rounded-2xl grid md:grid-cols-[4fr_6fr] gap-2 items-center justify-between">
+            <div className="flex flex-col gap-2 w-full h-full p-8 z-10 relative">
+                <h2 className="font-bold text-4xl">{movie.title}</h2>
 
-                                <div className=" h-full z-10 relative flex items-end">
-                                    <div className="p-4 pt-16 bg-gradient-to-b from-black/0 via-black/90 to-black w-full">
-                                        <h2 className="text-lg font-semibold">{movie.title}</h2>
+                <div className="">
+                    <p className="flex items-center gap-2">
+                        <RatingCompComponent starDimension={20} rating={movie.vote_average} /> ({movie.vote_average})
+                    </p>
+                    <p className="md:text-lg font-semibold mt-4 text-foreground/90">
+                        {movie.release_date} | {ISO6391.getName(movie.original_language)}
+                    </p>
+                </div>
+                <p className="text-muted-foreground line-clamp-4 mt-2">{movie.overview}</p>
 
-                                        <p className="text-sm text-foreground/90 font-semibold">
-                                            {movie.release_date} |{ISO6391.getName(movie.original_language)}
-                                        </p>
-                                        <div className="flex gap-2 items-center">
-                                            <RatingCompComponent rating={movie.vote_average} />{' '}
-                                            <p className="text-muted-foreground text-sm">({movie.vote_average})</p>{' '}
-                                        </div>
-                                        <p className="mt-2 text-xs md:text-xs line-clamp-3 text-muted-foreground">{movie.overview}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <ScrollBar orientation="horizontal" className="h-2" />
-                </ScrollArea>
-            </CardContent>
-        </Card>
+                <Button className="w-fit px-10 mt-auto ">Watch Now</Button>
+            </div>
+
+            <div className="relative h-full ">
+                <img className="w-full h-full " src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`} />
+                <div className="absolute inset-0 bg-gradient-to-r from-card to-transparent"></div>
+            </div>
+        </div>
     );
 };
 

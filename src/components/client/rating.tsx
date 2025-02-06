@@ -15,9 +15,9 @@ const RatingCompComponent = (props: Props) => {
                 name="rating"
                 rating={props.rating}
                 numberOfStars={10}
-                starSpacing={`${props?.starDimension || 1}px`}
+                starSpacing={`${props?.starSpacing || 1}px`}
                 starDimension={`${props?.starDimension || 16}px`}
-                starRatedColor="#21daa2"
+                starRatedColor="hsl(var(--primary))"
                 starEmptyColor="#5c5c5c"
             />
         </div>
