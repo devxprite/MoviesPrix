@@ -11,7 +11,7 @@ interface DiscoverMoviesProps {
     with_original_language?: string;
 }
 
-const discoverMovies = async (props: DiscoverMoviesProps) => {
+export const discoverMovies = async (props: DiscoverMoviesProps) => {
     try {
         const response = await tmdbClient.get<IApiResponse<IMovie[]>>('/discover/movie', {
             params: {
@@ -36,4 +36,12 @@ const discoverMovies = async (props: DiscoverMoviesProps) => {
     }
 };
 
-export { discoverMovies };
+export const getTrendingMovies = async () => {
+    try {
+        const response = await tmdbClient.get<IApiResponse<IMovie[]>>('/trending/movie/week');
+        return response.data.results;
+    } catch (error) {
+        console.log('Error while fetching movies inside Trending Movies:', error);
+        return [];
+    }
+};

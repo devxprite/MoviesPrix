@@ -1,9 +1,9 @@
+import RatingCompComponent from '@/components/client/rating';
 import MovieCard from '@/components/movie-card';
+import TrendingSection from '@/components/trending-section';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { discoverMovies } from '@/utils/movies';
-import { Car } from 'lucide-react';
-import Image from 'next/image';
 
 const CategoriesList = [
     {
@@ -21,41 +21,41 @@ const CategoriesList = [
         description: 'Discover the top action movies',
         queryFn: discoverMovies({ with_genres: '28' }),
     },
-    {
-        title: 'Best by Shah Rukh Khan',
-        description: 'Discover the best movies by Shah Rukh Khan',
-        queryFn: discoverMovies({ with_people: '35742', with_cast: '35742' }),
-    },
-    {
-        title: 'Top Comedy Movies',
-        description: 'Discover the top comedy movies',
-        queryFn: discoverMovies({ with_genres: '35' }),
-    },
-    {
-        title: 'Best from Bollywood',
-        description: 'Discover the best movies from Bollywood',
-        queryFn: discoverMovies({ with_original_language: 'hi' }),
-    },
-    {
-        title: 'Best Horror Movies',
-        description: 'Discover the best horror movies',
-        queryFn: discoverMovies({ with_genres: '27' }),
-    },
-    {
-        title: 'Best by Leonardo DiCaprio',
-        description: 'Discover the best movies by Leonardo DiCaprio',
-        queryFn: discoverMovies({ with_people: '6194', with_cast: '6194', sort_by: 'vote_count.desc' }),
-    },
-    {
-        title: 'Best SCI-FI Movies',
-        description: 'Discover the best sci-fi movies',
-        queryFn: discoverMovies({ with_genres: '878', sort_by: 'vote_count.desc' }),
-    },
-    {
-        title: 'Best Crime Movies',
-        description: 'Discover the best crime movies',
-        queryFn: discoverMovies({ with_genres: '80' }),
-    },
+    // {
+    //     title: 'Best by Shah Rukh Khan',
+    //     description: 'Discover the best movies by Shah Rukh Khan',
+    //     queryFn: discoverMovies({ with_people: '35742', with_cast: '35742' }),
+    // },
+    // {
+    //     title: 'Top Comedy Movies',
+    //     description: 'Discover the top comedy movies',
+    //     queryFn: discoverMovies({ with_genres: '35' }),
+    // },
+    // {
+    //     title: 'Best from Bollywood',
+    //     description: 'Discover the best movies from Bollywood',
+    //     queryFn: discoverMovies({ with_original_language: 'hi' }),
+    // },
+    // {
+    //     title: 'Best Horror Movies',
+    //     description: 'Discover the best horror movies',
+    //     queryFn: discoverMovies({ with_genres: '27' }),
+    // },
+    // {
+    //     title: 'Best by Leonardo DiCaprio',
+    //     description: 'Discover the best movies by Leonardo DiCaprio',
+    //     queryFn: discoverMovies({ with_people: '6194', with_cast: '6194', sort_by: 'vote_count.desc' }),
+    // },
+    // {
+    //     title: 'Best SCI-FI Movies',
+    //     description: 'Discover the best sci-fi movies',
+    //     queryFn: discoverMovies({ with_genres: '878', sort_by: 'vote_count.desc' }),
+    // },
+    // {
+    //     title: 'Best Crime Movies',
+    //     description: 'Discover the best crime movies',
+    //     queryFn: discoverMovies({ with_genres: '80' }),
+    // },
 ];
 
 export default async function Home() {
@@ -66,8 +66,11 @@ export default async function Home() {
         })
     );
 
+    console.log(categoriesWithMovies);
+
     return (
-        <div className="bg-green-500/0 grid gap-4 md:gap-6 w-full ">
+        <div className="grid gap-4 md:gap-8 w-full ">
+            <TrendingSection />
             {categoriesWithMovies.map(category => (
                 <Card key={category.title} className="w-full overflow-hidden">
                     <CardHeader>
