@@ -1,5 +1,5 @@
 import tmdbClient from '@/lib/tmdb';
-import { IApiResponse, IMovie, IMovieInfo } from '@/types/api-response';
+import { IApiResponse, ICast, IMovie, IMovieInfo } from '@/types/api-response';
 
 interface DiscoverMoviesProps {
     page?: number;
@@ -75,10 +75,22 @@ export const searchMovies = async ({ query, type = 'movie', page = 1 }: SearchMo
 
 export const getMovieInfo = async (id: string) => {
     try {
-        const response = await tmdbClient.get<IMovieInfo>(`/movie/${id}`, {
+        const movieData = await tmdbClient.get<IMovieInfo>(`/movie/${id}`, {
             params: { language: 'en-US' },
         });
-        return response.data;
+
+        const similarMovies = await tmdbClient.get<IApiResponse<IMovie[]>>(`/movie/${id}/similar`, {
+            params: { language: 'en-US' },
+        });
+        const castData = await tmdbClient.get<{ cast: ICast[] }>(`/movie/${id}/credits?language=en-US`, {
+            params: { language: 'en-US' },
+        });
+
+        return {
+            ...movieData.data,
+            cast: castData.data.cast,
+            similarMovies: similarMovies.data.results,
+        };
     } catch (error) {
         console.log('Error while fetching movie info:', error);
         return null;

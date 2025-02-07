@@ -1,3 +1,9 @@
+import CastCard from '@/components/cast-card';
+import RatingCompComponent from '@/components/client/rating';
+import MovieCard from '@/components/movie-card';
+import MovieInfo from '@/components/movie-info';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { getMovieInfo } from '@/utils/movies';
 import React from 'react';
 
@@ -8,24 +14,51 @@ interface Props {
 const pages = async (props: Props) => {
     const movieId = (await props.params).id;
 
-    const MovieInfo = await getMovieInfo(movieId);
+    const response = await getMovieInfo(movieId);
+    if (!response) {
+        return <div>Movie not found</div>;
+    }
+
+    console.log(response);
+    const { cast, similarMovies, ...movieInfo } = response;
 
     return (
-        <div>
-            <div className="rounded-2xl border bg-card relative  overflow-hidden">
-                <div className="absolute inset-0">
-                    <img className="size-full" src={`https://image.tmdb.org/t/p/w780${MovieInfo?.backdrop_path}`} alt="" />
-                </div>
+        <div className="grid gap-6">
+            <MovieInfo info={movieInfo} />
 
-                <div className="size-full grid grid-cols-[3fr_6fr] backdrop-blur-sm gap-10 p-6 bg-black/75 z-10 relative">
-                    <img className="rounded-lg border w-full" src={`https://image.tmdb.org/t/p/w780${MovieInfo?.poster_path}`} />
+            <Card className="w-full overflow-hidden">
+                <CardHeader>
+                    <CardTitle>Cast</CardTitle>
+                    <CardDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, excepturi.</CardDescription>
+                </CardHeader>
+                <CardContent className="pb-2">
+                    <ScrollArea className="w-full whitespace-nowrap">
+                        <div className="flex w-max space-x-4 pb-2">
+                            {cast.map(cast => (
+                                <CastCard key={cast.id} cast={cast} />
+                            ))}
+                        </div>
+                        <ScrollBar orientation="horizontal" className="h-2" />
+                    </ScrollArea>
+                </CardContent>
+            </Card>
 
-                    <div>
-                        <h2 className="text-4xl font-bold">{MovieInfo?.title}</h2>
-                        <h4 className="text-xl text-foreground/90 ">{MovieInfo?.tagline}</h4>
-                    </div>
-                </div>
-            </div>
+            <Card className="w-full overflow-hidden">
+                <CardHeader>
+                    <CardTitle>Similar Movies</CardTitle>
+                    <CardDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, excepturi.</CardDescription>
+                </CardHeader>
+                <CardContent className="pb-2">
+                    <ScrollArea className="w-full whitespace-nowrap">
+                        <div className="flex w-max space-x-4 pb-2">
+                            {similarMovies.map(cast => (
+                                <MovieCard key={cast.id} movie={cast} />
+                            ))}
+                        </div>
+                        <ScrollBar orientation="horizontal" className="h-2" />
+                    </ScrollArea>
+                </CardContent>
+            </Card>
         </div>
     );
 };

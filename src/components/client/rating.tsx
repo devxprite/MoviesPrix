@@ -7,10 +7,11 @@ interface Props {
     rating: number;
     starDimension?: number;
     starSpacing?: number;
+    className?: string;
 }
 const RatingCompComponent = (props: Props) => {
     return (
-        <div>
+        <div className={props.className}>
             <StarRatings
                 name="rating"
                 rating={props.rating}

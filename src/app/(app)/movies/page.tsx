@@ -14,7 +14,7 @@ const page = async ({ searchParams }: Props) => {
     const movies = await discoverMovies({ page: currentPage });
 
     return (
-        <div>
+        <div className="px-2">
             <h2 className="text-primary font-semibold text-2xl text-center mb-10 mt-6">Movies</h2>
 
             <div className="grid grid-cols-2 md:flex flex-wrap gap-4 md:gap-6 items-center justify-evenly md:justify-center ">
