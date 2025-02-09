@@ -69,7 +69,7 @@ export default async function Home() {
     console.log(categoriesWithMovies);
 
     return (
-        <div className="grid gap-4 md:gap-4 w-full ">
+        <div className="grid gap-6 xl:gap-8 w-full ">
             <TrendingSection />
             {categoriesWithMovies.map(category => (
                 <Card key={category.title} className="w-full overflow-hidden">

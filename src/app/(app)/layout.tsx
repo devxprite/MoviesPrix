@@ -1,3 +1,4 @@
+import { BottomNav } from '@/components/bottom-nav';
 import Sidebar from '@/components/sidebar';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -7,10 +8,10 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             <Sidebar />
             <main className="flex-1 relative max-md:h-[calc(100dvh-4rem)]">
                 <ScrollArea className="h-full">
-                    <div className="max-w-7xl mx-auto p-3 md:p-5 !pb-16">{children}</div>
+                    <div className="max-w-screen-xl mx-auto px-2 py-3 md:px-5 md:py-4 !pb-16">{children}</div>
                 </ScrollArea>
             </main>
-            {/* <BottomNav /> */}
+            <BottomNav />
         </div>
     );
 };

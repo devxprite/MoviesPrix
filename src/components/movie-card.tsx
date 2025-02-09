@@ -13,7 +13,7 @@ const MovieCard = ({ movie, className }: Props) => {
     return (
         <Link href={`/movies/${movie.id}`}>
             <div
-                className={cn('rounded-lg overflow-hidden border relative h-44 md:h-52 aspect-[3/4] md:aspect-[3/4] shadow-md', className)}
+                className={cn('rounded-lg overflow-hidden border relative h-44 md:h-52 xl:h-56 aspect-[3/4] md:aspect-[3/4] shadow-md hover:border-primary transition-all duration-300', className)}
             >
                 <img
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

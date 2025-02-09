@@ -2,6 +2,7 @@ import CastCard from '@/components/cast-card';
 import RatingCompComponent from '@/components/client/rating';
 import MovieCard from '@/components/movie-card';
 import MovieInfo from '@/components/movie-info';
+import SearchBar from '@/components/search-bar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { getMovieInfo } from '@/utils/movies';
@@ -24,6 +25,8 @@ const pages = async (props: Props) => {
 
     return (
         <div className="grid gap-6">
+            <SearchBar />
+
             <MovieInfo info={movieInfo} />
 
             <Card className="w-full overflow-hidden">

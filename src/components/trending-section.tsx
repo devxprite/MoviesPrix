@@ -11,14 +11,13 @@ import { Computer, PlayCircleIcon } from 'lucide-react';
 
 const TrendingSection = async () => {
     const movies = await getTrendingMovies();
-    const movie = movies[4];
+    const movie = movies[2];
 
-    console.log(movie);
 
     return (
         <>
             {/* for desktop */}
-            <div className="hidden w-full border relative bg-card overflow-hidden h-[26rem] rounded-2xl md:grid md:grid-cols-[4fr_6fr] gap-2 items-center justify-between">
+            <div className="hidden w-full border relative bg-card overflow-hidden h-[26rem] xl:h-[29rem] md:grid rounded-2xl grid-cols-[4fr_6fr] xl:grid-cols-[3fr_6fr] gap-2 items-center justify-between">
                 <div className="flex flex-col gap-2 w-full h-full p-8 z-10 relative">
                     <h2 className="font-bold text-4xl">{movie.title}</h2>
 
@@ -56,7 +55,7 @@ const TrendingSection = async () => {
                         <p className="flex items-center gap-2">
                             <RatingCompComponent starDimension={20} rating={movie.vote_average} /> ({movie.vote_average})
                         </p>
-                        <p className="text-muted-foreground text-xs line-clamp-5 mt-2">{movie.overview}</p>
+                        <p className="text-muted-foreground text-xs line-clamp-4 mt-2">{movie.overview}</p>
 
                         {/* <Button className="mt-4">
                             <PlayCircleIcon /> Watch Trailer
