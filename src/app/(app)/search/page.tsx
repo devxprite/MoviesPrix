@@ -7,7 +7,6 @@ const page = () => {
         <div>
             {/* <h2 className="text-primary font-semibold text-2xl text-center mb-10 mt-6">Search Page</h2> */}
 
-            <SearchBar />
             <ResultTemp />
         </div>
     );

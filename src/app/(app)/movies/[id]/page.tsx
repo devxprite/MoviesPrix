@@ -25,7 +25,7 @@ const pages = async (props: Props) => {
 
     return (
         <div className="grid gap-6">
-            <SearchBar />
+            {/* <SearchBar /> */}
 
             <MovieInfo info={movieInfo} />
 

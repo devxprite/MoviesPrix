@@ -17,7 +17,7 @@ const SearchBar = (props: Props) => {
     }, [query]);
 
     return (
-        <div className="flex gap-5 max-w-2xl mx-auto">
+        <div className="flex gap-5 max-w-3xl mx-auto w-full">
             <form className="flex items-center flex-1 w-full gap-3 py-2 px-3 bg-muted rounded-lg  mx-auto border focus-within:border-primary group transition-all">
                 <Search className="text-muted-foreground group-focus-within:text-primary size-5" />
                 <input

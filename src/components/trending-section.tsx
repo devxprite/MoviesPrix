@@ -13,11 +13,10 @@ const TrendingSection = async () => {
     const movies = await getTrendingMovies();
     const movie = movies[2];
 
-
     return (
         <>
             {/* for desktop */}
-            <div className="hidden w-full border relative bg-card overflow-hidden h-[26rem] xl:h-[29rem] md:grid rounded-2xl grid-cols-[4fr_6fr] xl:grid-cols-[3fr_6fr] gap-2 items-center justify-between">
+            <div className="hidden w-full border relative bg-card overflow-hidden h-[26rem] 2xl:h-[29rem] md:grid rounded-2xl grid-cols-[4fr_6fr] 2xl:grid-cols-[3fr_6fr] gap-2 items-center justify-between">
                 <div className="flex flex-col gap-2 w-full h-full p-8 z-10 relative">
                     <h2 className="font-bold text-4xl">{movie.title}</h2>
 

@@ -19,7 +19,7 @@ const page = async ({ searchParams }: Props) => {
 
             <div className="grid grid-cols-2 md:flex flex-wrap gap-4 md:gap-6 items-center justify-evenly md:justify-center ">
                 {movies.map(movie => (
-                    <MovieCard key={movie.id} movie={movie} className="w-full h-full" />
+                    <MovieCard key={movie.id} movie={movie} className="" />
                 ))}
             </div>
 

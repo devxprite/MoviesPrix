@@ -1,4 +1,4 @@
-import { Home, Library, Search, ListMusicIcon } from 'lucide-react';
+import { Home, Library, Search, ListMusicIcon, TvIcon, Heart } from 'lucide-react';
 
 const NavLinks = [
     {
@@ -12,20 +12,20 @@ const NavLinks = [
         icons: Search,
     },
     {
-        name: 'Albums',
-        href: '/albums',
-        icons: Library,
+        name: 'Movies',
+        href: '/movies',
+        icons: TvIcon,
+    },
+    {
+        name: 'Favorites',
+        href: '/favorites',
+        icons: Heart,
     },
     // {
-    //     name: 'Favorites',
-    //     href: '/favorites',
-    //     icons: Heart,
+    //     name: 'Playlist',
+    //     href: '/queue',
+    //     icons: ListMusicIcon,
     // },
-    {
-        name: 'Playlist',
-        href: '/queue',
-        icons: ListMusicIcon,
-    },
 ];
 
 export default NavLinks;
