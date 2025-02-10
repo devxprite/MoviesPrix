@@ -1,48 +1,34 @@
 'use client';
 
 import Slider from 'react-slick';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 interface Props {
     children: React.ReactNode[];
 }
 
 export default function CarouselComponent({ children }: Props) {
-    // const [isMobile, setIsMobile] = useState(true);
-
-    // const setDeviceType = () => (window.innerWidth < 900 ? setIsMobile(true) : setIsMobile(false));
-
-    // useLayoutEffect(() => {
-    //     setIsMobile(window.innerWidth < 900);
-    // }, []);
-
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
-    return <Slider {...settings}>{children}</Slider>;
-
-    // return (
-    //     <ReactCarousel
-    //         autoPlay
-    //         infiniteLoop
-    //         emulateTouch
-    //         autoFocus
-    //         useKeyboardArrows
-    //         centerMode={!isMobile}
-    //         centerSlidePercentage={80}
-    //         swipeable
-    //         showStatus={false}
-    //         showIndicators={false}
-    //         showArrows={false}
-    //         showThumbs={false}
-    //         interval={2000}
-    //     >
-    //         {children}
-    //     </ReactCarousel>
-    // );
+    return (
+        <Carousel
+            className="w-full  overflow-hidden"
+            // plugins={[Autoplay({ delay: 2000 })]}
+            opts={{
+                loop: true,
+            }}
+        >
+            <CarouselContent>
+                {children.map((child, index) => (
+                    <CarouselItem key={index} className="">
+                        {child}
+                    </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+        </Carousel>
+    );
 }

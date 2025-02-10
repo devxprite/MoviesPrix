@@ -115,12 +115,12 @@
 @layer utilities {
     /* span.text-gradient */
     .gradient {
-        @apply bg-gradient-to-br from-rose-500  to-orange-500;
+        @apply bg-gradient-to-br from-rose-500  to-red-500;
     }
 
     .gradient-text,
     .text-gradient {
-        @apply bg-gradient-to-r from-rose-500  to-orange-500;
+        @apply bg-gradient-to-r from-rose-500  to-red-500;
 
         @apply text-transparent bg-clip-text;
     }
