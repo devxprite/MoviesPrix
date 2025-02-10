@@ -10,10 +10,11 @@ type Props = {
 };
 
 const SearchBar = (props: Props) => {
-    const router = useRouter();
     const [query, setQuery] = useState('');
 
-    useEffect(() => {}, [query]);
+    useEffect(() => {
+        if (props.onChange) props.onChange(query);
+    }, [query]);
 
     return (
         <div className="flex gap-5 max-w-2xl mx-auto">
@@ -27,20 +28,8 @@ const SearchBar = (props: Props) => {
                     onChange={e => setQuery(e.target.value)}
                 />
             </form>
-            {/* <Select>
-                <SelectTrigger className="w-40 bg-muted h-10">
-                    <SelectValue placeholder="Select a fruit" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                        <SelectLabel>Fruits</SelectLabel>
-                        <SelectItem value="apple">Apple</SelectItem>
-                        <SelectItem value="pineapple">Pineapple</SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-            </Select> */}
         </div>
     );
 };
 
-export default memo(SearchBar);
+export default SearchBar;

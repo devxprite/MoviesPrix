@@ -1,5 +1,6 @@
 import tmdbClient from '@/lib/tmdb';
 import { IApiResponse, ICast, IMovie, IMovieInfo } from '@/types/api-response';
+import { GenericAbortSignal } from 'axios';
 
 interface DiscoverMoviesProps {
     page?: number;
@@ -54,11 +55,14 @@ interface SearchMoviesProps {
     query: string;
     page?: number;
     type?: string;
+    signal?: AbortSignal | GenericAbortSignal;
 }
 
-export const searchMovies = async ({ query, type = 'movie', page = 1 }: SearchMoviesProps) => {
+export const searchMovies = async ({ query, type = 'movie', page = 1, signal }: SearchMoviesProps) => {
     try {
+        console.log(`Searching for ${type} with query: ${query}`);
         const response = await tmdbClient.get<IApiResponse<IMovie[]>>(`/search/${type}`, {
+            signal,
             params: {
                 query,
                 include_adult: false,
