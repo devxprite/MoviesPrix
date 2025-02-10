@@ -1,8 +1,13 @@
+'use client';
+
+import { useFavorites } from '@/context/favorites-context';
 import { cn } from '@/lib/utils';
 import { IMovie } from '@/types/api-response';
 import { IconStar, IconStarFilled } from '@tabler/icons-react';
+import { Heart } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { useLocalStorage } from 'react-use';
 
 type Props = {
     movie: IMovie;
@@ -10,6 +15,8 @@ type Props = {
 };
 
 const MovieCard = ({ movie, className }: Props) => {
+    const { isFavorited, toggleFavorite } = useFavorites();
+
     return (
         <Link href={`/movies/${movie.id}`} className="inline-block whitespace-normal">
             <div
@@ -27,6 +34,17 @@ const MovieCard = ({ movie, className }: Props) => {
                 <p className="absolute px-1.5 py-0.5 top-1 left-1 bg-card/90 border rounded text-xs flex items-center gap-1 text-primary">
                     <IconStarFilled className="size-3 md:size-3.5" /> <span>{movie.vote_average.toFixed(1)}</span>
                 </p>
+
+                {/* <div className="absolute top-1.5 right-1.5 text-primary p-1 rounded bg-card/90 ">
+                    <Heart
+                        onClick={e => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            toggleFavorite(movie);
+                        }}
+                        className={cn(' transition-all duration-300 z-30 size-5', isFavorited(movie) && 'fill-primary text-primary')}
+                    />
+                </div> */}
 
                 <div className=" h-full z-10 relative flex items-end">
                     <div className="p-2 pt-12 bg-gradient-to-b from-black/0 via-black/80 to-black w-full">

@@ -1,12 +1,18 @@
-import { IMovieInfo } from '@/types/api-response';
+'use client';
+import { IMovie, IMovieInfo } from '@/types/api-response';
 import React from 'react';
 import RatingCompComponent from './client/rating';
+import { Heart } from 'lucide-react';
+import { useFavorites } from '@/context/favorites-context';
+import { cn } from '@/lib/utils';
 
 type Props = {
     info: IMovieInfo;
 };
 
 const MovieInfo = ({ info }: Props) => {
+    const { isFavorited, toggleFavorite } = useFavorites();
+
     const otherDetails = [
         { label: 'Budget', value: `$${info?.budget}` },
         { label: 'Revenue', value: `$${info?.revenue}` },
@@ -27,7 +33,22 @@ const MovieInfo = ({ info }: Props) => {
             </div>
 
             <div className="size-full grid md:grid-cols-[3fr_6fr] backdrop-blur-[0px] gap-8 2xl:gap-10 p-5 2xl:p-6 bg-card/90 z-10 relative">
-                <img className=" rounded-lg border w-full h-full" src={`https://image.tmdb.org/t/p/w780${info?.poster_path}`} />
+                <div className="relative">
+                    <img className=" rounded-lg border w-full h-full" src={`https://image.tmdb.org/t/p/w780${info?.poster_path}`} />
+                    <div
+                        onClick={e => {
+                            toggleFavorite(info! as unknown as IMovie);
+                        }}
+                        className="absolute z-30 top-2 right-2 text-primary p-2 rounded-md bg-card/50 cursor-pointer"
+                    >
+                        <Heart
+                            className={cn(
+                                ' transition-all duration-300 z-30 size-6',
+                                isFavorited(info as unknown as IMovie) && 'fill-primary text-primary'
+                            )}
+                        />
+                    </div>
+                </div>
 
                 <div className="flex flex-col gap-5">
                     <div>
