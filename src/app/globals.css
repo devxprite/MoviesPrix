@@ -125,3 +125,68 @@
         @apply text-transparent bg-clip-text;
     }
 }
+
+@layer components {
+    .pl {
+        display: block;
+        width: 6.25em;
+        height: 6.25em;
+    }
+
+    .pl__ring,
+    .pl__ball {
+        animation: ring 2s ease-out infinite;
+    }
+
+    .pl__ball {
+        animation-name: ball;
+    }
+
+    /* Animation */
+    @keyframes ring {
+        from {
+            stroke-dasharray: 0 257 0 0 1 0 0 258;
+        }
+
+        25% {
+            stroke-dasharray: 0 0 0 0 257 0 258 0;
+        }
+
+        50%,
+        to {
+            stroke-dasharray: 0 0 0 0 0 515 0 0;
+        }
+    }
+
+    @keyframes ball {
+        from,
+        50% {
+            animation-timing-function: ease-in;
+            stroke-dashoffset: 1;
+        }
+
+        64% {
+            animation-timing-function: ease-in;
+            stroke-dashoffset: -109;
+        }
+
+        78% {
+            animation-timing-function: ease-in;
+            stroke-dashoffset: -145;
+        }
+
+        92% {
+            animation-timing-function: ease-in;
+            stroke-dashoffset: -157;
+        }
+
+        57%,
+        71%,
+        85%,
+        99%,
+        to {
+            animation-timing-function: ease-out;
+            stroke-dashoffset: -163;
+        }
+    }
+}

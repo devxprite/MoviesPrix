@@ -15,7 +15,7 @@ export default function CarouselComponent({ children }: Props) {
     return (
         <Carousel
             className="w-full  overflow-hidden"
-            // plugins={[Autoplay({ delay: 2000 })]}
+            plugins={[Autoplay({ delay: 2000 })]}
             opts={{
                 loop: true,
             }}

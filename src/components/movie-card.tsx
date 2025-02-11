@@ -8,6 +8,7 @@ import { Heart } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import { useLocalStorage } from 'react-use';
+import Image from './client/image';
 
 type Props = {
     movie: IMovie;
@@ -18,18 +19,22 @@ const MovieCard = ({ movie, className }: Props) => {
     const { isFavorited, toggleFavorite } = useFavorites();
 
     return (
-        <Link href={`/movies/${movie.id}`} className="inline-block whitespace-normal">
+        <Link href={`/movies/${movie.id}`} className="inline-block whitespace-normal" prefetch={false}>
             <div
                 className={cn(
                     'rounded-lg overflow-hidden border relative h-44 md:h-52 2xl:h-56 aspect-[3/4] md:aspect-[3/4] shadow-md hover:border-primary transition-all duration-300 group',
                     className
                 )}
             >
-                <img
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                    alt={movie.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:brightness-50 transition-all duration-300"
-                />
+                <div className="absolute inset-0 w-full h-full object-cover group-hover:brightness-50 transition-all duration-300">
+                    <Image
+                        src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                        placeholderSrc={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`}
+                        // placeholderSrc={`https://placehold.co/300x450/020202/a3a3a3?font=raleway&text=${encodeURI(movie.title)}`}
+                        // placeholder={<div />}
+                        alt={movie.title}
+                    />
+                </div>
 
                 <p className="absolute px-1.5 py-0.5 top-1 left-1 bg-card/90 border rounded text-xs flex items-center gap-1 text-primary">
                     <IconStarFilled className="size-3 md:size-3.5" /> <span>{movie.vote_average.toFixed(1)}</span>
