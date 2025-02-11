@@ -946,6 +946,15 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
+framer-motion@^12.4.2:
+  version "12.4.2"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.4.2.tgz#8d7c1684fdc1206ddd111bdfd53dcddd6b1fd960"
+  integrity sha512-pW307cQKjDqEuO1flEoIFf6TkuJRfKr+c7qsHAJhDo4368N/5U8/7WU8J+xhd9+gjmOgJfgp+46evxRRFM39dA==
+  dependencies:
+    motion-dom "^12.0.0"
+    motion-utils "^12.0.0"
+    tslib "^2.4.0"
+
 fsevents@~2.3.2:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
@@ -1166,6 +1175,26 @@ minimatch@^9.0.4:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.1.2.tgz#93a9626ce5e5e66bd4db86849e7515e92340a707"
   integrity sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==
+
+motion-dom@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.0.0.tgz#7045c63642eecbcc04c40b4457ebb07b3c2b3d0c"
+  integrity sha512-CvYd15OeIR6kHgMdonCc1ihsaUG4MYh/wrkz8gZ3hBX/uamyZCXN9S9qJoYF03GqfTt7thTV/dxnHYX4+55vDg==
+  dependencies:
+    motion-utils "^12.0.0"
+
+motion-utils@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.0.0.tgz#fabf79f4f1c818720a1b70f615e2a1768f396ac0"
+  integrity sha512-MNFiBKbbqnmvOjkPyOKgHUp3Q6oiokLkI1bEwm5QA28cxMZrv0CbbBGDNmhF6DIXsi1pCQBSs0dX8xjeER1tmA==
+
+motion@^12.4.2:
+  version "12.4.2"
+  resolved "https://registry.yarnpkg.com/motion/-/motion-12.4.2.tgz#7961e465ecf83bf116b7f643ff1e36b93a4f4004"
+  integrity sha512-NGocC1zic2hGDEasxS76W5/7JIJ5loKIxawkFoEqk7yTu8yXI+6l6IlEj9u8aPp6tM04DwvuiQcobpw9i0hhiw==
+  dependencies:
+    framer-motion "^12.4.2"
+    tslib "^2.4.0"
 
 mz@^2.7.0:
   version "2.7.0"
