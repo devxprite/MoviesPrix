@@ -2,6 +2,7 @@ import MovieCard from '@/components/movie-card';
 import PaginationComponent from '@/components/pagination';
 
 import { discoverMovies } from '@/utils/movies';
+import { Metadata } from 'next';
 import React from 'react';
 
 const TOTAL_PAGES = 100;
@@ -9,6 +10,11 @@ const TOTAL_PAGES = 100;
 interface Props {
     searchParams: Promise<{ page: string }>;
 }
+
+export const metadata: Metadata = {
+    title: 'Explore Movies',
+};
+
 const page = async ({ searchParams }: Props) => {
     const currentPage = parseInt((await searchParams).page) || 1;
     const movies = await discoverMovies({ page: currentPage });

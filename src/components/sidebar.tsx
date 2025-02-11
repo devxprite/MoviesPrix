@@ -33,7 +33,7 @@ const Sidebar = () => {
                     </Link>
                 ))}
 
-                <a href="http://" className="mt-auto">
+                <a href="https://github.com/devxprite/moviesprix/" target="_blank" className="mt-auto">
                     <Button variant={'secondary'} className="w-full">
                         <Github />
                         View Source

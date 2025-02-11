@@ -1,5 +1,11 @@
+const dynamic = 'force-dynamic';
 import React from 'react';
 import FavoriteMovies from './favorite-movies';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Favorite Movies',
+};
 
 const page = () => {
     return (

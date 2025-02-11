@@ -14,14 +14,11 @@ interface FavoritesContextType {
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
 export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [favorites, setFavorites] = useState<IMovie[]>(() => {
-        const storedFavorites = localStorage.getItem('favorites');
-        return storedFavorites ? JSON.parse(storedFavorites) : [];
-    });
+    const [localStorageFavorites, setLocalStorageFavorites] = useLocalStorage<IMovie[]>('favorites', []);
 
-    useEffect(() => {
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    }, [favorites]);
+    const [favorites, setFavorites] = useState<IMovie[]>(() => localStorageFavorites || []);
+
+    useEffect(() => setLocalStorageFavorites(favorites), [favorites]);
 
     const isFavorited = (movie: IMovie) => favorites.some(fav => fav.id === movie.id);
 

@@ -1,6 +1,11 @@
 import SearchBar from '@/components/search-bar';
 import React from 'react';
 import ResultTemp from './result-temp';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Search Movies',
+};
 
 const page = () => {
     return (
