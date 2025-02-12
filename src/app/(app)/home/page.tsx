@@ -1,5 +1,6 @@
 import RatingCompComponent from '@/components/client/rating';
 import MovieCard from '@/components/movie-card';
+import SearchBar from '@/components/search-bar';
 import TrendingSection from '@/components/trending-section';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
@@ -73,7 +74,8 @@ export default async function Home() {
     const filteredCategoriesWithMovies = categoriesWithMovies.filter(category => category.movies.length > 0);
 
     return (
-        <div className="grid gap-6 2xl:gap-8 w-full ">
+        <div className="grid gap-5 2xl:gap-8 w-full ">
+            <SearchBar />
             <TrendingSection />
             {filteredCategoriesWithMovies.map(category => (
                 <Card key={category.title} className="w-full overflow-hidden">

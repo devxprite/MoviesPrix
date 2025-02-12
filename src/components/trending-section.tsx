@@ -6,6 +6,7 @@ import ISO6391 from 'iso-639-1';
 import { getTrendingMovies } from '@/utils/movies';
 import { Button } from './ui/button';
 import CarouselComponent from './client/carousel';
+import Link from 'next/link';
 
 const TrendingSection = async () => {
     const movies = await getTrendingMovies();
@@ -13,13 +14,13 @@ const TrendingSection = async () => {
     return (
         <CarouselComponent>
             {movies.map(movie => (
-                <div>
+                <Link href={`/movie/${movie.id}`} key={movie.id} className="w-full">
                     {/* for desktop */}
                     <div className="hidden w-full border relative bg-card overflow-hidden h-[26rem] 2xl:h-[29rem] md:grid rounded-2xl grid-cols-[4fr_6fr] 2xl:grid-cols-[3fr_6fr] gap-2 items-center justify-between">
                         <div className="flex flex-col gap-2 w-full h-full p-8 z-10 relative">
                             <h2 className="font-bold text-4xl">{movie.title}</h2>
 
-                            <div className="">
+                            <div>
                                 <p className="flex items-center gap-2">
                                     <RatingCompComponent starDimension={20} rating={movie.vote_average} /> ({movie.vote_average})
                                 </p>
@@ -61,7 +62,7 @@ const TrendingSection = async () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             ))}
         </CarouselComponent>
     );

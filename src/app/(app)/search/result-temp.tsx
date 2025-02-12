@@ -11,8 +11,7 @@ import { Loader2Icon } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const ResultTemp = () => {
-    // const results = await getTrendingMovies();
+const SearchResults = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<IMovie[]>([]);
     const [loading, setLoading] = useState(false);
@@ -30,8 +29,6 @@ const ResultTemp = () => {
 
         return () => controller.abort();
     }, [query]);
-
-    console.log(loading);
 
     return (
         <div>
@@ -90,4 +87,4 @@ const ResultTemp = () => {
     );
 };
 
-export default ResultTemp;
+export default SearchResults;

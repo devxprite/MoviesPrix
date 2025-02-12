@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const metadata: Metadata = {
-    title: 'Explore Movies',
+    title: 'Explore',
 };
 
 const page = async ({ searchParams }: Props) => {

@@ -4,7 +4,7 @@ import FavoriteMovies from './favorite-movies';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Favorite Movies',
+    title: 'Favorite',
 };
 
 const page = () => {
