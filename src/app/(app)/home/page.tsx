@@ -24,42 +24,42 @@ const CategoriesList = [
     },
     {
         title: 'Top Action Movies',
-        description: 'Discover the top action movies',
+        description: 'Experience high-octane thrills and adrenaline-pumping action',
         queryFn: discoverMovies({ with_genres: '28' }),
     },
     {
         title: 'Best by Shah Rukh Khan',
-        description: 'Discover the best movies by Shah Rukh Khan',
+        description: 'Watch the finest movies of Bollywood legend Shah Rukh Khan',
         queryFn: discoverMovies({ with_people: '35742', with_cast: '35742' }),
     },
     {
         title: 'Top Comedy Movies',
-        description: 'Discover the top comedy movies',
+        description: 'Enjoy a collection of movies guaranteed to make you laugh',
         queryFn: discoverMovies({ with_genres: '35' }),
     },
     {
         title: 'Best from Bollywood',
-        description: 'Discover the best movies from Bollywood',
+        description: 'Watch the most iconic and entertaining Bollywood films',
         queryFn: discoverMovies({ with_original_language: 'hi' }),
     },
     {
         title: 'Best Horror Movies',
-        description: 'Discover the best horror movies',
+        description: 'Dive into terrifying tales that will keep you on the edge of your seat',
         queryFn: discoverMovies({ with_genres: '27' }),
     },
     {
         title: 'Best by Leonardo DiCaprio',
-        description: 'Discover the best movies by Leonardo DiCaprio',
+        description: 'Explore top-rated movies starring Leonardo DiCaprio',
         queryFn: discoverMovies({ with_people: '6194', with_cast: '6194', sort_by: 'vote_count.desc' }),
     },
     {
         title: 'Best SCI-FI Movies',
-        description: 'Discover the best sci-fi movies',
+        description: 'Discover futuristic worlds and mind-blowing sci-fi adventures',
         queryFn: discoverMovies({ with_genres: '878', sort_by: 'vote_count.desc' }),
     },
     {
         title: 'Best Crime Movies',
-        description: 'Discover the best crime movies',
+        description: 'Uncover the best crime thrillers packed with suspense and mystery',
         queryFn: discoverMovies({ with_genres: '80' }),
     },
 ];
@@ -74,8 +74,10 @@ export default async function Home() {
     const filteredCategoriesWithMovies = categoriesWithMovies.filter(category => category.movies.length > 0);
 
     return (
-        <div className="grid gap-5 2xl:gap-8 w-full ">
-            <SearchBar />
+        <div className="grid gap-5 2xl:gap-8 w-full">
+            <div className=" md:hidden">
+                <SearchBar />
+            </div>
             <TrendingSection />
             {filteredCategoriesWithMovies.map(category => (
                 <Card key={category.title} className="w-full overflow-hidden">

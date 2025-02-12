@@ -50,7 +50,7 @@ const pages = async (props: Props) => {
             <Card className="w-full overflow-hidden">
                 <CardHeader>
                     <CardTitle>Cast</CardTitle>
-                    <CardDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, excepturi.</CardDescription>
+                    <CardDescription>Meet the talented actors who bring the movie to life.</CardDescription>
                 </CardHeader>
                 <CardContent className="pb-2">
                     <ScrollArea className="w-full whitespace-nowrap">
@@ -67,7 +67,7 @@ const pages = async (props: Props) => {
             <Card className="w-full overflow-hidden">
                 <CardHeader>
                     <CardTitle>Similar Movies</CardTitle>
-                    <CardDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, excepturi.</CardDescription>
+                    <CardDescription>Explore movies similar to this one that you might also enjoy.</CardDescription>
                 </CardHeader>
                 <CardContent className="pb-2">
                     <ScrollArea className="w-full whitespace-nowrap">

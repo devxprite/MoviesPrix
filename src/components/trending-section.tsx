@@ -1,5 +1,4 @@
 import React from 'react';
-import Autoplay from 'embla-carousel-autoplay';
 
 import RatingCompComponent from './client/rating';
 import ISO6391 from 'iso-639-1';
@@ -54,7 +53,7 @@ const TrendingSection = async () => {
                                 <p className="flex items-center gap-2">
                                     <RatingCompComponent starDimension={20} rating={movie.vote_average} /> ({movie.vote_average})
                                 </p>
-                                <p className="text-muted-foreground text-xs line-clamp-4 mt-2">{movie.overview}</p>
+                                <p className="text-muted-foreground text-xs line-clamp-6 mt-2">{movie.overview}</p>
 
                                 {/* <Button className="mt-4">
                            <PlayCircleIcon /> Watch Trailer

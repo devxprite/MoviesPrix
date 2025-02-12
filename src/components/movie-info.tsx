@@ -5,6 +5,7 @@ import RatingCompComponent from './client/rating';
 import { Heart } from 'lucide-react';
 import { useFavorites } from '@/context/favorites-context';
 import { cn } from '@/lib/utils';
+import ISO6391 from 'iso-639-1';
 
 type Props = {
     info: IMovieInfo;
@@ -19,7 +20,7 @@ const MovieInfo = ({ info }: Props) => {
         { label: 'Runtime', value: `${info?.runtime} min` },
         { label: 'Release Date', value: `${info?.release_date}` },
         { label: 'Status', value: `${info?.status}` },
-        { label: 'Original Language', value: `${info?.original_language}` },
+        { label: 'Original Language', value: `${ISO6391.getName(info?.original_language)}` },
         // { label: 'Original Title', value: `${info?.original_title}` },
         // { label: 'Popularity', value: `${info?.popularity}` },
         { label: 'Vote Count', value: `${info?.vote_count}` },

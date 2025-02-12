@@ -22,11 +22,12 @@ const LandingPage = () => {
 
                 <div className="z-10 flex items-center justify-center mb-8">
                     <AnimatedGradientText>
-                        🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300 " />{' '}
+                        {/* 🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300 " />{' '} */}
                         <span
                             className={cn(`inline animate-gradient gradient bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`)}
                         >
-                            Introducing VibeTune
+                            {/* Introducing Moviesprix */}
+                            Your Ultimate Movie Destination!
                         </span>
                     </AnimatedGradientText>
                 </div>
@@ -35,20 +36,20 @@ const LandingPage = () => {
                 </h1>
 
                 <p className="text-muted-foreground max-w-2xl text-base md:text-2xl">
-                    VibeTune is the ultimate music player app that lets you stream and discover new music with ease.
+                    Explore the world of cinema like never before! Find the latest blockbusters and all-time favorites in one place.
                 </p>
 
                 <div className="flex gap-x-6 gap-y-4 flex-col md:flex-row max-w-lg mx-auto mt-20">
                     <Link
                         href={'/home'}
-                        className="text-sm md:text-base gradient inline-block text-white py-2.5 px-10 rounded-full font-semibold w-full"
+                        className="text-sm md:text-base gradient inline-block text-white py-2.5 px-10 rounded-full font-semibold w-full hover:brightness-125 hover:scale-105 transition-all"
                     >
                         <Rocket className="size-5 inline mr-2" /> Get Started!
                     </Link>
 
                     <a
-                        href={'/http://github.com/devXprite/moviesPrix/'}
-                        className="text-sm md:text-base bg-muted inline-block text-white py-2.5 px-10 rounded-full font-semibold w-full text-foreground/75 border border-muted-foreground/25"
+                        href={'http://github.com/devXprite/moviesPrix/'}
+                        className="text-sm md:text-base bg-muted inline-block text-white py-2.5 px-10 rounded-full font-semibold w-full text-foreground/75 border border-muted-foreground/25 hover:brightness-125 hover:scale-105 transition-all"
                     >
                         <Github className="size-5 inline mr-2" /> View On Github
                     </a>
