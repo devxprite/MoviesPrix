@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { getMovieInfo } from '@/utils/movies';
 import { Metadata, ResolvingMetadata } from 'next';
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 interface Props {
@@ -40,7 +41,7 @@ const pages = async (props: Props) => {
     const movieId = (await props.params).id;
 
     const response = await getMovieInfo(movieId);
-    if (!response) return <div>Movie not found</div>;
+    if (!response) return notFound();
     const { cast, similarMovies, ...movieInfo } = response;
 
     return (
