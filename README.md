@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<!-- # 🎬 MoviesPrix - Movie Exploration Platform
 
-## Getting Started
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://moviesprix.vercel.app)
+[![GitHub stars](https://img.shields.io/github/stars/devxprite/moviesprix)](https://github.com/devxprite/moviesprix/stargazers)
+[![Next.js](https://img.shields.io/badge/Next.js-15.0.0-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue)](https://www.typescriptlang.org/) -->
 
-First, run the development server:
+<div align="center">
+    <img src="./public/android-chrome-192x192.png" alt="MoviesPrix" width="100" />
+  <h2>MoviesPrix</h2>
+  <!-- <a href="https://moviesprix.netlify.app/" target="_blank">➥ Live Demo</a> -->
+    
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<!-- ## About -->
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+MoviesPrix is a modern movie discovery web application built with Next.js 15, offering users a seamless experience to explore, search, and save their favorite movies. Integrated with the TMDB API, it provides up-to-date movie information and trends.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ <img src="./public/banner.png" alt="MoviesPrix" width="500" />
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Features
 
-## Learn More
+- **Movie Discovery**: Browse trending, popular, and top-rated movies
+- **Movie Search**: Find movies by title
+- **Detailed View**: Comprehensive movie details including cast
+- **Favorites System**: User-friendly watchlist functionality
+- **Responsive Design**: Perfectly adapted for all screen sizes
+- **Performance Optimized**: Fast loading with Next.js server-side rendering
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS + Shadcn
+- **API Integration**: TMDB Movie Database
+- **Deployment**: Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Quick Start
 
-## Deploy on Vercel
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/devxprite/moviesprix.git
+   cd moviesprix
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Configure Environment Variables**
+   Create `.env.local` file:
+   ```env
+   TMDB_API_KEY=your_tmdb_api_key_here
+   ```
+
+4. **Run development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+## 🔧 Configuration
+
+1. Obtain TMDB API key from [TMDB Website](https://www.themoviedb.org/settings/api)
+2. Replace `your_tmdb_api_key_here` with your actual API key in `.env.local`
+
+## 🌐 Deployment
+
+The application is automatically deployed on Vercel:
+[https://moviesprix.vercel.app](https://moviesprix.vercel.app)
+
+[![Deployed with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 🙏 Acknowledgments
+
+- Movie data provided by [The Movie Database (TMDB)](https://www.themoviedb.org/)
+
+---
+
+⭐ Star this repository if you found it useful!
