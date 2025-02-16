@@ -1,6 +1,5 @@
-import SearchBar from '@/components/search-bar';
 import React from 'react';
-import SearchResults from './result-temp';
+import SearchResults from './result';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
