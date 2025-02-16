@@ -52,6 +52,7 @@ const SearchResults = () => {
                         {!loading &&
                             results.map(movie => (
                                 <Link
+                                    prefetch={false}
                                     href={`/movies/${movie.id}`}
                                     key={movie.id}
                                     className="py-1.5 px-2 rounded-md gap-3 flex hover:bg-muted cursor-pointer group transition-all"
